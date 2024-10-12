@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 95149346}
   - component: {fileID: 95149345}
   - component: {fileID: 95149344}
+  - component: {fileID: 95149347}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -168,6 +169,7 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: 6b98826a5122cb94a87db66b3fb785bd, type: 2}
   - tetromino: 6
     tile: {fileID: 11400000, guid: 2eb1fa8d58d10234aa4c02c5a7523de9, type: 2}
+  spawnPosition: {x: -1, y: 8, z: 0}
 --- !u!156049354 &95149345
 Grid:
   m_ObjectHideFlags: 0
@@ -196,6 +198,18 @@ Transform:
   - {fileID: 674526458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95149347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95149343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7182400d08ae4db1fa48f11904911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +246,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.18431373, g: 0.20784314, b: 0.23921569, a: 0}
+  m_BackGroundColor: {r: 0.6126623, g: 0.5145959, b: 0.9245283, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
