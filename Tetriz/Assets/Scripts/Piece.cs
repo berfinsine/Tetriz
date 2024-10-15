@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
-    public Board board {  get; private set; }
+    public Board board { get; private set; }
     public TetrominoData data { get; private set; }
     public Vector3Int[] cells { get; private set; }
     public Vector3Int position { get; private set; }
@@ -40,18 +40,16 @@ public class Piece : MonoBehaviour
 
         this.lockTime += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        // Q ve E kaldýrýldý, sadece W eklendi
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            Rotate(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.E)){
-            Rotate(1);
+            Rotate(1); // Sadece saat yönünde döndürme
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
             Move(Vector2Int.left);
-        } 
+        }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             Move(Vector2Int.right);
@@ -83,7 +81,7 @@ public class Piece : MonoBehaviour
 
         if (this.lockTime >= this.lockDelay)
         {
-            Lock() ;
+            Lock();
         }
     }
 
@@ -118,10 +116,10 @@ public class Piece : MonoBehaviour
         }
 
         return valid;
-        
+
     }
 
-    private void Rotate (int direction)
+    private void Rotate(int direction)
     {
         int originalRotation = this.rotationIndex;
         this.rotationIndex = Wrap(this.rotationIndex + direction, 0, 4);
@@ -166,9 +164,9 @@ public class Piece : MonoBehaviour
     {
         int wallKickIndex = GetWallKickIndex(rotationIndex, rotationDirection);
 
-        for (int i =0; i < this.data.wallKicks.GetLength(1); i++)
+        for (int i = 0; i < this.data.wallKicks.GetLength(1); i++)
         {
-            Vector2Int translation = this.data.wallKicks[wallKickIndex,i];
+            Vector2Int translation = this.data.wallKicks[wallKickIndex, i];
 
             if (Move(translation))
             {
@@ -183,9 +181,9 @@ public class Piece : MonoBehaviour
     {
         int wallKickIndex = rotationIndex * 2;
 
-        if(rotationDirection < 0)
+        if (rotationDirection < 0)
         {
-            wallKickIndex-- ;
+            wallKickIndex--;
         }
         return Wrap(wallKickIndex, 0, this.data.wallKicks.GetLength(0));
     }
@@ -202,3 +200,4 @@ public class Piece : MonoBehaviour
         }
     }
 }
+
